@@ -35,6 +35,7 @@ byt3dPool =
 byt3dPool.TEXTURES_NAME             = "Textures"
 byt3dPool.SHADERS_NAME              = "Shaders"
 byt3dPool.MATERIALS_NAME            = "Materials"
+byt3dPool.SPRITES_NAME              = "Sprites"
 ------------------------------------------------------------------------------------------------------------
 function byt3dPool:CheckPoolMgr( )
 	if gPoolMgr == nil then

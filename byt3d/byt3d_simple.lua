@@ -47,7 +47,6 @@ gDir:Init()
 gSdisp:Init(WINwidth, WINheight, WINFullscreen)
 gSdisp:Begin()
 
-Smain:Begin()
 SobjMgr:Begin()
 
 gSmgr:ChangeState("MainApp")
