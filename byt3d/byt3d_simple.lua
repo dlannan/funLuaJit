@@ -20,7 +20,8 @@ gSmgr = require("scripts/platform/statemanager")
 -- Require all the states we will use for the game
 
 gSdisp 			= require("scripts/states/common/display")
-local Smain 	= require("scripts/states/application/sample01")
+--local Smain 	= require("scripts/states/application/sample01")
+local Smain 	= require("scripts/states/application/sample02")
 
 ------------------------------------------------------------------------------------------------------------
 

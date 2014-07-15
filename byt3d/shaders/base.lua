@@ -3,6 +3,7 @@
 colour_shader = [[
 	attribute vec3 vPosition;
 	attribute vec2 vTexCoord; 
+	uniform   vec4 vCol;
 	
 	uniform float 	time;
 	uniform vec2 	resolution;
@@ -11,7 +12,7 @@ colour_shader = [[
 	varying vec2 	v_texCoord0;
 	
 	void main() {
-	    vColor = vec4(1.0, 1.0, 1.0, 1.0); 
+	    vColor = vCol; 
 	    gl_Position =  vec4(vPosition.xyz, 1.0);
 	    v_texCoord0 = vTexCoord;
 	}

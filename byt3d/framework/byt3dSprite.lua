@@ -61,7 +61,13 @@ function byt3dSprite:New(name, imageFile)
 
 	newSpr.loc_res      = newSpr.uiShader.loc_res
 	newSpr.loc_time     = newSpr.uiShader.loc_time
-		
+	newSpr.colorArray   = newSpr.uiShader.colorArray
+	
+	newSpr.color 		= ffi.new("Colorf", { 1,1,1,1 })
+
+	newSpr.alpha_src 	= gl.GL_SRC_ALPHA
+	newSpr.alpha_dst 	= gl.GL_ONE_MINUS_SRC_ALPHA
+	
 	local tex0 = byt3dTexture:New()
 	tex0:FromSDLImage(newSpr.name, newSpr.imageFile)
 	
@@ -129,7 +135,7 @@ function byt3dSprite:Prepare()
 
 	byt3dRender:ChangeShader(self.uiShader)
 	gl.glDisable ( gl.GL_DEPTH_TEST )
-	gl.glBlendFunc ( gl.GL_SRC_ALPHA, gl.GL_ONE_MINUS_SRC_ALPHA)
+	gl.glBlendFunc ( self.alpha_src, self.alpha_dst )
 
 	gl.glUniform2f(self.loc_res, gSdisp.WINwidth, gSdisp.WINheight )
 	gl.glUniform1f(self.loc_time, os.clock())
@@ -137,6 +143,13 @@ function byt3dSprite:Prepare()
 	gl.glActiveTexture(gl.GL_TEXTURE0)
 	gl.glBindTexture(gl.GL_TEXTURE_2D, self.mesh.tex0.textureId)
 	gl.glUniform1i(self.uiShader.samplerTex[0], 0)
+	gl.glUniform4f(self.uiShader.colorArray, self.color.r,self.color.g,self.color.b,self.color.a )
+end	
+
+------------------------------------------------------------------------------------------------------------
+	
+function byt3dSprite:SetColor()	
+	gl.glUniform4f(self.uiShader.colorArray, self.color.r,self.color.g,self.color.b,self.color.a )
 end
 
 ------------------------------------------------------------------------------------------------------------

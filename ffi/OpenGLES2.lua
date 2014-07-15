@@ -12,6 +12,12 @@ local lib   = ffi_OpenGLES2_lib or libs[ ffi.os ][ ffi.arch ]
 gles2 = ffi.load( lib )
 
 ffi.cdef[[
+
+	typedef struct Colorf {
+	  float r, g, b;
+	  float a;
+	} Colorf;
+   
       enum {
 	 GL_ES_VERSION_2_0                 = 1,
 

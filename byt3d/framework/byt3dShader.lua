@@ -195,7 +195,7 @@ function byt3dShader:UseDefaultDefinitions()
 
     self.vertexArray 		= gl.glGetAttribLocation( self.info.prog, "vPosition")
 --    self.normalArray 		= gl.glGetAttribLocation(self.info.prog, "vNormal")
-    --self.colorArray 		= gl.glGetAttribLocation( self.info.prog, "vColor")
+    self.colorArray 		= gl.glGetUniformLocation( self.info.prog, "vCol")
     self.texCoordArray[0]  	= gl.glGetAttribLocation( self.info.prog, "vTexCoord")
     
     -- Diffuse and extra texture
