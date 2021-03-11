@@ -1118,12 +1118,12 @@ ffi.cdef[[
       uint32_t type;   
       uint32_t timestamp;     
       uint32_t windowID;    
-      uint8_t state;        
-      uint8_t padding1;
-      uint8_t padding2;
-      uint8_t padding3;
-      int x;              
-      int y;              
+      //-- uint8_t state;        
+      //-- uint8_t padding1;
+      //-- uint8_t padding2;
+      //-- uint8_t padding3;
+      int32_t x;              
+      int32_t y;              
       int xrel;           
       int yrel;           
    } SDL_MouseMotionEvent;

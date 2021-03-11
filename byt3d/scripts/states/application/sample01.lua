@@ -26,7 +26,6 @@ Ssample1.image 			= nil
 ------------------------------------------------------------------------------------------------------------
 
 
-
 ------------------------------------------------------------------------------------------------------------
 
 function Ssample1:Begin()
@@ -39,16 +38,18 @@ function Ssample1:Begin()
 	self.sprite.alpha_dst 	= gl.GL_DST_COLOR
 	self.sprite.color = ffi.new("Colorf", { 1, 0, 1, 1 })
 
-	self.bg = byt3dSprite:New("img2", "byt3d/data/images/galaxy/star.png")
-	
+	self.bg = byt3dSprite:New("img2", "byt3d/data/images/surfaces/wood-oak.png")
 	-- Reassign the size and uishader to something a little different :)
+	self.bg.color = ffi.new("Colorf", { 0, 1, 0, 1 })
 	self.bg.xscale = 2.0
 	self.bg.yscale = 2.0
-	self.bg.uiShader = byt3dShader:NewProgram( colour_shader, liquid_blue_shader_frag )
+	self.bg.uiShader = byt3dShader:NewProgram( colour_shader, plasmas_blue_shader_frag )
+	self.bg.mesh:SetShader(self.bg.uiShader)
+
+	byt3dShader:ValidateProgram(self.bg.uiShader.info.prog)
 end
 
 ------------------------------------------------------------------------------------------------------------
-
 function Ssample1:Update(mxi, myi, buttons)
 
 	posx = mxi / gSdisp.WINwidth * 2.0 - 1.0

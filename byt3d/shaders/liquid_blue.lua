@@ -18,11 +18,11 @@ vec3 getColour(vec2 p)
 	
 	for(float i = 0.0; i < 5.0; ++i) {
 		
-		p.x += cos((time / 10.0) + p.y);
-		p.y += sin((time / 10.0) + p.x);
+		p.x += cos((time * 0.1) + p.y);
+		p.y += sin((time * 0.1) + p.x);
 		
-		p.x *= scale + (i / 10.0);
-		p.y *= scale + (i / 10.0);
+		p.x *= scale + (i * 0.1);
+		p.y *= scale + (i * 0.1);
 		
 		float fTemp = abs(((p.x * 0.5) / (p.y * 1.0)) / 150.0);
 		float r = fTemp * (sin(p.x * 0.5) * 100.0) - 0.02;

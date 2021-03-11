@@ -11,7 +11,8 @@
 -- TODO: Geometry Shaders - for instancing and so forth. Need to fit in here nicely.
 --       Whole thing needs a bit of a tidy-up.
 
-local gl   = require( "ffi/OpenGLES2" )
+local ffi 	= require("ffi")
+local gl   	= require( "ffi/OpenGLES2" )
 
 ------------------------------------------------------------------------------------------------------------
 --	/// <summary>
@@ -130,7 +131,7 @@ function byt3dShader:ValidateProgram( prog )
         -- // Show any errors as appropriate
         local log = ffi.new("char["..(logLen[0]+2).."]")
         gl.glGetProgramInfoLog(prog, logLen[0]+1, logLen, log);
-        print( "Prog Info Log: ", log)
+        print( "Prog Info Log: ", ffi.string(log))
     end
 end
 

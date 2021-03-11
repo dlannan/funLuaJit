@@ -26,6 +26,7 @@ require("framework/byt3dMesh")
 require("scripts/utils/geometry")
 require("shaders/base")
 require("shaders/liquid_blue")
+require("shaders/plasma_blue")
 ------------------------------------------------------------------------------------------------------------
 --	/// <summary>
 --	/// Description of byt3dSprite.

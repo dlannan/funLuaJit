@@ -82,7 +82,6 @@ function InitSDL(ww, wh, fs)
 	
 	local systems 		= { "win", "x11", "dfb", "cocoa", "uikit" }
 	local subsystem 	= wminfo.subsystem
-	print(subsystem)
 	local wminfo 		= wminfo.info[systems[tonumber(subsystem)]]
 	local window 		= wminfo.window
 --	local display 		= nil
