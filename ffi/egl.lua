@@ -2,7 +2,7 @@ local ffi  = require( "ffi" )
 local libs = ffi_egl_libs or {
    OSX     = { x86 = "bin/OSX/egl.dylib", x64 = "bin/OSX/egl.dylib" },
    Windows = { x86 = "bin/Windows/x86/libEGL.dll", x64 = "bin/Windows/x64/libEGL.dll" },
-   Linux   = { x86 = "bin/Linux/x86/libEGL.so.1", x64 = "bin/Linux/x64//libEGL.so.1", arm = "EGL" }
+   Linux   = { x86 = "bin/Linux/x86/libEGL.so", x64 = "bin/Linux/x64//libEGL.so", arm = "EGL" }
 }
 local lib = ffi_EGL_lib or libs[ ffi.os ][ ffi.arch ]
 

@@ -29,7 +29,7 @@ if ffi.os == "OSX" then
         egl.EGL_DEPTH_SIZE, egl.EGL_DONT_CARE,
         egl.EGL_NONE, egl.EGL_NONE
     }
-elseif ffi.os == "Windows" then
+elseif ffi.os == "Windows" or ffi.os == "Linux" then
 
     --print('wm.display/dpy/r', wm.display, dpy, r)
     attrib_list = {
@@ -82,7 +82,8 @@ function InitSDL(ww, wh, fs)
 	
 	local systems 		= { "win", "x11", "dfb", "cocoa", "uikit" }
 	local subsystem 	= wminfo.subsystem
-	local wminfo 		= wminfo.info[systems[subsystem]]
+	print(subsystem)
+	local wminfo 		= wminfo.info[systems[tonumber(subsystem)]]
 	local window 		= wminfo.window
 --	local display 		= nil
 
@@ -205,7 +206,7 @@ function InitEGL(wm)
 	end
 
     -- Need this for latest EGL support
-    ffi.C.LoadLibraryA("d3dcompiler_43.dll")
+    if(ffi.os == "Windows") then ffi.C.LoadLibraryA("d3dcompiler_43.dll") end
 
 	local dpy      		= egl.eglGetDisplay( egl.EGL_DEFAULT_DISPLAY )
     if dpy == egl.EGL_NO_DISPLAY then print("Cannot get current display.") end
