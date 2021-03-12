@@ -43,7 +43,7 @@ function Ssample1:Begin()
 	self.bg.color = ffi.new("Colorf", { 0, 1, 0, 1 })
 	self.bg.xscale = 2.0
 	self.bg.yscale = 2.0
-	self.bg.uiShader = byt3dShader:NewProgram( colour_shader, plasmas_blue_shader_frag )
+	self.bg.uiShader = byt3dShader:NewProgram( colour_shader, liquid_blue_shader_frag )
 	self.bg.mesh:SetShader(self.bg.uiShader)
 
 	byt3dShader:ValidateProgram(self.bg.uiShader.info.prog)

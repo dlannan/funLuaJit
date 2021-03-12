@@ -1,7 +1,7 @@
 liquid_blue_shader_frag = [[
 
 #ifdef GL_ES
-precision mediump float;
+precision highp float;
 #endif
 
 uniform float time;
@@ -35,7 +35,7 @@ vec3 getColour(vec2 p)
 }
 
 void main(void) {
-	vec2 uPos = ( v_texCoord0.xy * 1024.0 / resolution.xy );//normalize wrt y axis
+	vec2 uPos = ( gl_FragCoord.xy / resolution.xy );//normalize wrt y axis
 	uPos.x += (time+10.) / 12.0;
 	uPos.y -= (time+10.) / 10.0;
 
